@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="泛型,泛型通配符,">
+  <meta name="keywords" content="泛型,泛型擦除,泛型通配符,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="泛型通配符extends1234List&amp;lt;? extents A&amp;gt; list = Lists.newArrayList();list.add(new A1); // 不可以，无法确定到底是何种子类A a = list.get();  //可以的，他会返回父类A1 a = (A1) list.get(); // 可以，但是有可能会发生异常  疑问： &amp;lt; ? extends A&amp;gt">
-<meta name="keywords" content="泛型,泛型通配符">
+<meta name="description" content="泛型泛型的擦除 定义的泛型参数，有可能被擦除为两种形式，一个是Object()的情况。一种是上界(&amp;lt;? Extents Class&amp;gt;。  这是一个未规定上界的泛型类   123456789101112/*** 这是一个未规定上界的泛型类*/public class ObjectContainer&amp;lt;T&amp;gt; &amp;#123;     private T contained; 	pub">
+<meta name="keywords" content="泛型,泛型擦除,泛型通配符">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java泛型之上界通配符与下界通配符">
 <meta property="og:url" content="http://yoursite.com/2019/01/22/Java泛型之上界通配符与下界通配符/index.html">
 <meta property="og:site_name" content="IsaacGao&#39;Blog">
-<meta property="og:description" content="泛型通配符extends1234List&amp;lt;? extents A&amp;gt; list = Lists.newArrayList();list.add(new A1); // 不可以，无法确定到底是何种子类A a = list.get();  //可以的，他会返回父类A1 a = (A1) list.get(); // 可以，但是有可能会发生异常  疑问： &amp;lt; ? extends A&amp;gt">
+<meta property="og:description" content="泛型泛型的擦除 定义的泛型参数，有可能被擦除为两种形式，一个是Object()的情况。一种是上界(&amp;lt;? Extents Class&amp;gt;。  这是一个未规定上界的泛型类   123456789101112/*** 这是一个未规定上界的泛型类*/public class ObjectContainer&amp;lt;T&amp;gt; &amp;#123;     private T contained; 	pub">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-22T13:50:30.982Z">
+<meta property="og:updated_time" content="2019-01-22T15:42:22.517Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java泛型之上界通配符与下界通配符">
-<meta name="twitter:description" content="泛型通配符extends1234List&amp;lt;? extents A&amp;gt; list = Lists.newArrayList();list.add(new A1); // 不可以，无法确定到底是何种子类A a = list.get();  //可以的，他会返回父类A1 a = (A1) list.get(); // 可以，但是有可能会发生异常  疑问： &amp;lt; ? extends A&amp;gt">
+<meta name="twitter:description" content="泛型泛型的擦除 定义的泛型参数，有可能被擦除为两种形式，一个是Object()的情况。一种是上界(&amp;lt;? Extents Class&amp;gt;。  这是一个未规定上界的泛型类   123456789101112/*** 这是一个未规定上界的泛型类*/public class ObjectContainer&amp;lt;T&amp;gt; &amp;#123;     private T contained; 	pub">
 
 
 
@@ -363,7 +363,40 @@
       
 
       
-        <h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2><h3 id="extends"><a href="#extends" class="headerlink" title="extends"></a>extends</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;? extents A&gt; list = Lists.newArrayList();</span><br><span class="line">list.add(<span class="keyword">new</span> A1); <span class="comment">// 不可以，无法确定到底是何种子类</span></span><br><span class="line">A a = list.get();  <span class="comment">//可以的，他会返回父类</span></span><br><span class="line">A1 a = (A1) list.get(); <span class="comment">// 可以，但是有可能会发生异常</span></span><br></pre></td></tr></table></figure>
+        <h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><h2 id="泛型的擦除"><a href="#泛型的擦除" class="headerlink" title="泛型的擦除"></a>泛型的擦除</h2><blockquote>
+<p>定义的泛型参数，有可能被擦除为两种形式，一个是Object(<t>)的情况。一种是上界(&lt;? Extents Class&gt;。</t></p>
+<ul>
+<li>这是一个未规定上界的泛型类</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 这是一个未规定上界的泛型类</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectContainer</span>&lt;<span class="title">T</span>&gt; </span>&#123; </span><br><span class="line">    <span class="keyword">private</span> T contained; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ObjectContainer</span><span class="params">(T contained)</span> </span>&#123; </span><br><span class="line">  	  <span class="keyword">this</span>.contained = contained; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> T  <span class="title">getContained</span><span class="params">()</span> </span>&#123; </span><br><span class="line">	    <span class="keyword">return</span> contained; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>因为没有上界他会被擦除为Obj</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectContainer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> Object contained; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ObjectContainer</span><span class="params">(Object contained)</span> </span>&#123; </span><br><span class="line">  		  <span class="keyword">this</span>.contained = contained; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">getContained</span><span class="params">()</span> </span>&#123; </span><br><span class="line"> 	 	  <span class="keyword">return</span> contained;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当执行get方法的时候，会发生Obj -&gt; 所需类型的向下转型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person contained = (Person)personContainer.getContained();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2><blockquote>
+<p>为了解决一定的泛型擦除问题</p>
+</blockquote>
+<h3 id="extends-上界通配符"><a href="#extends-上界通配符" class="headerlink" title="extends 上界通配符"></a>extends 上界通配符</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;? extents A&gt; list = Lists.newArrayList();</span><br><span class="line">list.add(<span class="keyword">new</span> A1); <span class="comment">// 不可以，无法确定到底是何种子类</span></span><br><span class="line">A a = list.get();  <span class="comment">//可以的，他会返回父类</span></span><br><span class="line">A1 a = (A1) list.get(); <span class="comment">// 可以，但是有可能会发生异常</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果设定了上界，那上面的例子会变成什么？</p>
+<ul>
+<li>为泛型类设定一个上界<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectContainer</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">Person</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> T contained; </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ObjectContainer</span><span class="params">(T contained)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">this</span>.contained =contained;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">public</span> T <span class="title">getContained</span><span class="params">()</span> </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> contained; </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>会发生泛型擦除，编译器产生的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectContainer</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span> Person contained; </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ObjectContainer</span><span class="params">(Person contained)</span> </span>&#123; </span><br><span class="line">   <span class="keyword">this</span>.contained = contained; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">public</span> Person <span class="title">getContained</span><span class="params">()</span> </span>&#123; </span><br><span class="line">   <span class="keyword">return</span> contained; </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当get的时候，编译器生成的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Employee&lt;String&gt; contained = (Employee)personContainer.getContained();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <blockquote>
 <p>疑问： &lt; ? extends A&gt; &lt; ? Super A&gt; 的区别</p>
 <ul>
@@ -441,6 +474,8 @@
         <div class="post-tags">
           
             <a href="/tags/泛型/" rel="tag"></a>
+          
+            <a href="/tags/泛型擦除/" rel="tag"></a>
           
             <a href="/tags/泛型通配符/" rel="tag"></a>
           
@@ -562,7 +597,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -595,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#泛型"><span class="nav-number">1.</span> <span class="nav-text">泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通配符"><span class="nav-number">1.1.</span> <span class="nav-text">通配符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#extends"><span class="nav-number">1.1.1.</span> <span class="nav-text">extends</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无界通配符"><span class="nav-number">1.1.2.</span> <span class="nav-text">无界通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">1.1.3.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#泛型"><span class="nav-number">1.</span> <span class="nav-text">泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#泛型的擦除"><span class="nav-number">1.1.</span> <span class="nav-text">泛型的擦除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通配符"><span class="nav-number">1.2.</span> <span class="nav-text">通配符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#extends-上界通配符"><span class="nav-number">1.2.1.</span> <span class="nav-text">extends 上界通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无界通配符"><span class="nav-number">1.2.2.</span> <span class="nav-text">无界通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">1.2.3.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
