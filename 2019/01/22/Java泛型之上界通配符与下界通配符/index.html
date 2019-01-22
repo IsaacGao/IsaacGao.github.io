@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="泛型泛型的擦除 定义的泛型参数，有可能被擦除为两种形式，一个是Object()的情况。一种是上界(&amp;lt;? Extents Class&amp;gt;。  这是一个未规定上界的泛型类   123456789101112/*** 这是一个未规定上界的泛型类*/public class ObjectContainer&amp;lt;T&amp;gt; &amp;#123;     private T contained; 	pub">
+<meta name="description" content="泛型泛型的擦除 定义的泛型参数，有可能被擦除为两种形式，一个是Object()的情况。一种是上界(&amp;lt;? Extents Class&amp;gt;。   这是一个未规定上界的泛型类 123456789101112/*** 这是一个未规定上界的泛型类*/public class ObjectContainer&amp;lt;T&amp;gt; &amp;#123;     private T contained; 	publ">
 <meta name="keywords" content="泛型,泛型擦除,泛型通配符">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java泛型之上界通配符与下界通配符">
 <meta property="og:url" content="http://yoursite.com/2019/01/22/Java泛型之上界通配符与下界通配符/index.html">
 <meta property="og:site_name" content="IsaacGao&#39;Blog">
-<meta property="og:description" content="泛型泛型的擦除 定义的泛型参数，有可能被擦除为两种形式，一个是Object()的情况。一种是上界(&amp;lt;? Extents Class&amp;gt;。  这是一个未规定上界的泛型类   123456789101112/*** 这是一个未规定上界的泛型类*/public class ObjectContainer&amp;lt;T&amp;gt; &amp;#123;     private T contained; 	pub">
+<meta property="og:description" content="泛型泛型的擦除 定义的泛型参数，有可能被擦除为两种形式，一个是Object()的情况。一种是上界(&amp;lt;? Extents Class&amp;gt;。   这是一个未规定上界的泛型类 123456789101112/*** 这是一个未规定上界的泛型类*/public class ObjectContainer&amp;lt;T&amp;gt; &amp;#123;     private T contained; 	publ">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-22T15:42:22.517Z">
+<meta property="og:updated_time" content="2019-01-22T15:46:43.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java泛型之上界通配符与下界通配符">
-<meta name="twitter:description" content="泛型泛型的擦除 定义的泛型参数，有可能被擦除为两种形式，一个是Object()的情况。一种是上界(&amp;lt;? Extents Class&amp;gt;。  这是一个未规定上界的泛型类   123456789101112/*** 这是一个未规定上界的泛型类*/public class ObjectContainer&amp;lt;T&amp;gt; &amp;#123;     private T contained; 	pub">
+<meta name="twitter:description" content="泛型泛型的擦除 定义的泛型参数，有可能被擦除为两种形式，一个是Object()的情况。一种是上界(&amp;lt;? Extents Class&amp;gt;。   这是一个未规定上界的泛型类 123456789101112/*** 这是一个未规定上界的泛型类*/public class ObjectContainer&amp;lt;T&amp;gt; &amp;#123;     private T contained; 	publ">
 
 
 
@@ -365,12 +365,11 @@
       
         <h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><h2 id="泛型的擦除"><a href="#泛型的擦除" class="headerlink" title="泛型的擦除"></a>泛型的擦除</h2><blockquote>
 <p>定义的泛型参数，有可能被擦除为两种形式，一个是Object(<t>)的情况。一种是上界(&lt;? Extents Class&gt;。</t></p>
-<ul>
-<li>这是一个未规定上界的泛型类</li>
-</ul>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 这是一个未规定上界的泛型类</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectContainer</span>&lt;<span class="title">T</span>&gt; </span>&#123; </span><br><span class="line">    <span class="keyword">private</span> T contained; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ObjectContainer</span><span class="params">(T contained)</span> </span>&#123; </span><br><span class="line">  	  <span class="keyword">this</span>.contained = contained; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> T  <span class="title">getContained</span><span class="params">()</span> </span>&#123; </span><br><span class="line">	    <span class="keyword">return</span> contained; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
+<li><p>这是一个未规定上界的泛型类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 这是一个未规定上界的泛型类</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectContainer</span>&lt;<span class="title">T</span>&gt; </span>&#123; </span><br><span class="line">    <span class="keyword">private</span> T contained; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ObjectContainer</span><span class="params">(T contained)</span> </span>&#123; </span><br><span class="line">  	  <span class="keyword">this</span>.contained = contained; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> T  <span class="title">getContained</span><span class="params">()</span> </span>&#123; </span><br><span class="line">	    <span class="keyword">return</span> contained; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>因为没有上界他会被擦除为Obj</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectContainer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> Object contained; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ObjectContainer</span><span class="params">(Object contained)</span> </span>&#123; </span><br><span class="line">  		  <span class="keyword">this</span>.contained = contained; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">getContained</span><span class="params">()</span> </span>&#123; </span><br><span class="line"> 	 	  <span class="keyword">return</span> contained;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -384,12 +383,11 @@
 <h3 id="extends-上界通配符"><a href="#extends-上界通配符" class="headerlink" title="extends 上界通配符"></a>extends 上界通配符</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;? extents A&gt; list = Lists.newArrayList();</span><br><span class="line">list.add(<span class="keyword">new</span> A1); <span class="comment">// 不可以，无法确定到底是何种子类</span></span><br><span class="line">A a = list.get();  <span class="comment">//可以的，他会返回父类</span></span><br><span class="line">A1 a = (A1) list.get(); <span class="comment">// 可以，但是有可能会发生异常</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>如果设定了上界，那上面的例子会变成什么？</p>
-<ul>
-<li>为泛型类设定一个上界<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectContainer</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">Person</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> T contained; </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ObjectContainer</span><span class="params">(T contained)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">this</span>.contained =contained;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">public</span> T <span class="title">getContained</span><span class="params">()</span> </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> contained; </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
 </blockquote>
 <ul>
+<li><p>为泛型类设定一个上界</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectContainer</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">Person</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> T contained; </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ObjectContainer</span><span class="params">(T contained)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">this</span>.contained =contained;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">public</span> T <span class="title">getContained</span><span class="params">()</span> </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> contained; </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>会发生泛型擦除，编译器产生的代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectContainer</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span> Person contained; </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ObjectContainer</span><span class="params">(Person contained)</span> </span>&#123; </span><br><span class="line">   <span class="keyword">this</span>.contained = contained; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">public</span> Person <span class="title">getContained</span><span class="params">()</span> </span>&#123; </span><br><span class="line">   <span class="keyword">return</span> contained; </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -399,6 +397,7 @@
 </ul>
 <blockquote>
 <p>疑问： &lt; ? extends A&gt; &lt; ? Super A&gt; 的区别</p>
+</blockquote>
 <ul>
 <li>extends <ul>
 <li>子类通配符，上界通配符</li>
@@ -424,16 +423,15 @@
 </ul>
 </li>
 </ul>
-</blockquote>
 <blockquote>
 <p>思考：泛型方法 <t> read(List<t> list) 和 泛型类中的泛型方法的区别</t></t></p>
+</blockquote>
 <ul>
 <li>在泛型方法中，T可以适应具体的类型</li>
-<li>但是在泛型类中，在创建实例的时候，就确定了具体的类型。</li>
-</ul>
-</blockquote>
-<h3 id="无界通配符"><a href="#无界通配符" class="headerlink" title="无界通配符"></a>无界通配符</h3><ul>
-<li>List&lt;?&gt;  和 List的区别<ul>
+<li><p>但是在泛型类中，在创建实例的时候，就确定了具体的类型。</p>
+<h3 id="无界通配符"><a href="#无界通配符" class="headerlink" title="无界通配符"></a>无界通配符</h3></li>
+<li><p>List&lt;?&gt;  和 List的区别</p>
+<ul>
 <li>List 等价于 List<object></object></li>
 <li>而List&lt;?&gt;持有某种特定类型<blockquote>
 <p>思考，泛型擦除到第一个边界是上面</p>
@@ -444,16 +442,16 @@
 </ul>
 <blockquote>
 <p>思考：<t> 和 &lt;?&gt;的区别 </t></p>
+</blockquote>
 <ul>
-<li>就是确切参数和通配符的区别， &lt;?&gt;是一个通配符<ul>
+<li><p>就是确切参数和通配符的区别， &lt;?&gt;是一个通配符</p>
+<ul>
 <li>T需要一个具体的类型</li>
-<li>?则都可以，原生类型也可以</li>
+<li>?则都可以，原生类型也可以<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3></li>
 </ul>
 </li>
-</ul>
-</blockquote>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
-<li>再次注意：如果想要确切的返回值，就用上界通配符，他一定是返回A。如果想要传递具体类型的参数，要用下界通配符。</li>
+<li><p>再次注意：如果想要确切的返回值，就用上界通配符，他一定是返回A。如果想要传递具体类型的参数，要用下界通配符。</p>
+</li>
 <li>局限性的捕获转换<br>#java编程思想 #泛型</li>
 </ul>
 
