@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="泛型,泛型通配符,">
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="习惯的力量">
-<meta property="og:type" content="website">
-<meta property="og:title" content="IsaacGao&#39;Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="泛型通配符extends1234List&amp;lt;? extents A&amp;gt; list = Lists.newArrayList();list.add(new A1); // 不可以，无法确定到底是何种子类A a = list.get();  //可以的，他会返回父类A1 a = (A1) list.get(); // 可以，但是有可能会发生异常  疑问： &amp;lt; ? extends A&amp;gt">
+<meta name="keywords" content="泛型,泛型通配符">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java泛型之上界通配符与下界通配符">
+<meta property="og:url" content="http://yoursite.com/2019/01/22/Java泛型之上界通配符与下界通配符/index.html">
 <meta property="og:site_name" content="IsaacGao&#39;Blog">
-<meta property="og:description" content="习惯的力量">
+<meta property="og:description" content="泛型通配符extends1234List&amp;lt;? extents A&amp;gt; list = Lists.newArrayList();list.add(new A1); // 不可以，无法确定到底是何种子类A a = list.get();  //可以的，他会返回父类A1 a = (A1) list.get(); // 可以，但是有可能会发生异常  疑问： &amp;lt; ? extends A&amp;gt">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-22T13:50:30.982Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IsaacGao&#39;Blog">
-<meta name="twitter:description" content="习惯的力量">
+<meta name="twitter:title" content="Java泛型之上界通配符与下界通配符">
+<meta name="twitter:description" content="泛型通配符extends1234List&amp;lt;? extents A&amp;gt; list = Lists.newArrayList();list.add(new A1); // 不可以，无法确定到底是何种子类A a = list.get();  //可以的，他会返回父类A1 a = (A1) list.get(); // 可以，但是有可能会发生异常  疑问： &amp;lt; ? extends A&amp;gt">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/22/Java泛型之上界通配符与下界通配符/">
 
 
 
 
 
-  <title>IsaacGao'Blog</title>
+  <title>Java泛型之上界通配符与下界通配符 | IsaacGao'Blog</title>
   
 
 
@@ -143,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -247,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -279,9 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/22/Java泛型之上界通配符与下界通配符/" itemprop="url">Java泛型之上界通配符与下界通配符</a></h1>
+          <h1 class="post-title" itemprop="name headline">Java泛型之上界通配符与下界通配符</h1>
         
 
         <div class="post-meta">
@@ -364,18 +363,67 @@
       
 
       
-        
-          
-          泛型通配符extends1234List&lt;? extents A&gt; list = Lists.newArrayList();list.add(new A1); // 不可以，无法确定到底是何种子类A a = list.get();  //可以的，他会返回父类A1 a = (A1) lis
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/22/Java泛型之上界通配符与下界通配符/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2><h3 id="extends"><a href="#extends" class="headerlink" title="extends"></a>extends</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;? extents A&gt; list = Lists.newArrayList();</span><br><span class="line">list.add(<span class="keyword">new</span> A1); <span class="comment">// 不可以，无法确定到底是何种子类</span></span><br><span class="line">A a = list.get();  <span class="comment">//可以的，他会返回父类</span></span><br><span class="line">A1 a = (A1) list.get(); <span class="comment">// 可以，但是有可能会发生异常</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>疑问： &lt; ? extends A&gt; &lt; ? Super A&gt; 的区别</p>
+<ul>
+<li>extends <ul>
+<li>子类通配符，上界通配符</li>
+<li>只能取，是父类对象。</li>
+<li>不能存，因为不知道具体的子类。<ul>
+<li>eg： new ArrayList<a1>().add(new  A2); 是不可以的。</a1></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>super  子类一定包含父类的所有属性<ul>
+<li>父类，下界通配符<ul>
+<li>规定了下界，只能存，存入的都是其子类</li>
+<li>不能取，因为你不知道他到底是哪个具体的父类</li>
+<li>只能存，因为他一定是某个子类</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>参考：<ul>
+<li><a href="http://www.importnew.com/17006.html" target="_blank" rel="noopener">泛型中? super T和? extends T的区别 - ImportNew</a></li>
+<li><a href="https://itimetraveler.github.io/2016/12/27/%E3%80%90Java%E3%80%91%E6%B3%9B%E5%9E%8B%E4%B8%AD%20extends%20%E5%92%8C%20super%20%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/" target="_blank" rel="noopener">【java】泛型中 extends 和 super 的区别？ | iTimeTraveler</a></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>思考：泛型方法 <t> read(List<t> list) 和 泛型类中的泛型方法的区别</t></t></p>
+<ul>
+<li>在泛型方法中，T可以适应具体的类型</li>
+<li>但是在泛型类中，在创建实例的时候，就确定了具体的类型。</li>
+</ul>
+</blockquote>
+<h3 id="无界通配符"><a href="#无界通配符" class="headerlink" title="无界通配符"></a>无界通配符</h3><ul>
+<li>List&lt;?&gt;  和 List的区别<ul>
+<li>List 等价于 List<object></object></li>
+<li>而List&lt;?&gt;持有某种特定类型<blockquote>
+<p>思考，泛型擦除到第一个边界是上面</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>思考：<t> 和 &lt;?&gt;的区别 </t></p>
+<ul>
+<li>就是确切参数和通配符的区别， &lt;?&gt;是一个通配符<ul>
+<li>T需要一个具体的类型</li>
+<li>?则都可以，原生类型也可以</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li>再次注意：如果想要确切的返回值，就用上界通配符，他一定是返回A。如果想要传递具体类型的参数，要用下界通配符。</li>
+<li>局限性的捕获转换<br>#java编程思想 #泛型</li>
+</ul>
+
       
     </div>
     
@@ -390,140 +438,38 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/22/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="IsaacGao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IsaacGao'Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/22/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-22T20:33:33+08:00">
-                Jan 22 2019
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/泛型/" rel="tag"></a>
           
-            
+            <a href="/tags/泛型通配符/" rel="tag"></a>
           
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/22/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/22/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -533,10 +479,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -544,6 +491,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -564,8 +515,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -625,6 +585,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#泛型"><span class="nav-number">1.</span> <span class="nav-text">泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通配符"><span class="nav-number">1.1.</span> <span class="nav-text">通配符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#extends"><span class="nav-number">1.1.1.</span> <span class="nav-text">extends</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无界通配符"><span class="nav-number">1.1.2.</span> <span class="nav-text">无界通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">1.1.3.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -758,6 +734,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
