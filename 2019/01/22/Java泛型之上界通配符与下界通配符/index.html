@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="泛型泛型的擦除 定义的泛型参数，有可能被擦除为两种形式，一个是Object()的情况。一种是上界(&amp;lt;? Extents Class&amp;gt;。   这是一个未规定上界的泛型类 123456789101112/*** 这是一个未规定上界的泛型类*/public class ObjectContainer&amp;lt;T&amp;gt; &amp;#123;     private T contained; 	publ">
+<meta name="description" content="泛型泛型的擦除 定义的泛型参数，有可能被擦除为两种形式，一个是Object()的情况。一种是上界(&amp;lt;? Extents Class&amp;gt;。   这是一个未规定上界的泛型类 123456789101112/*** 这是一个未规定上界的泛型类*/public class ObjectContainer&amp;lt;T&amp;gt; &amp;#123;    private T contained;	public">
 <meta name="keywords" content="泛型,泛型擦除,泛型通配符">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java泛型之上界通配符与下界通配符">
 <meta property="og:url" content="http://yoursite.com/2019/01/22/Java泛型之上界通配符与下界通配符/index.html">
 <meta property="og:site_name" content="IsaacGao&#39;Blog">
-<meta property="og:description" content="泛型泛型的擦除 定义的泛型参数，有可能被擦除为两种形式，一个是Object()的情况。一种是上界(&amp;lt;? Extents Class&amp;gt;。   这是一个未规定上界的泛型类 123456789101112/*** 这是一个未规定上界的泛型类*/public class ObjectContainer&amp;lt;T&amp;gt; &amp;#123;     private T contained; 	publ">
+<meta property="og:description" content="泛型泛型的擦除 定义的泛型参数，有可能被擦除为两种形式，一个是Object()的情况。一种是上界(&amp;lt;? Extents Class&amp;gt;。   这是一个未规定上界的泛型类 123456789101112/*** 这是一个未规定上界的泛型类*/public class ObjectContainer&amp;lt;T&amp;gt; &amp;#123;    private T contained;	public">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-22T15:46:43.140Z">
+<meta property="og:updated_time" content="2019-01-22T15:56:55.779Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java泛型之上界通配符与下界通配符">
-<meta name="twitter:description" content="泛型泛型的擦除 定义的泛型参数，有可能被擦除为两种形式，一个是Object()的情况。一种是上界(&amp;lt;? Extents Class&amp;gt;。   这是一个未规定上界的泛型类 123456789101112/*** 这是一个未规定上界的泛型类*/public class ObjectContainer&amp;lt;T&amp;gt; &amp;#123;     private T contained; 	publ">
+<meta name="twitter:description" content="泛型泛型的擦除 定义的泛型参数，有可能被擦除为两种形式，一个是Object()的情况。一种是上界(&amp;lt;? Extents Class&amp;gt;。   这是一个未规定上界的泛型类 123456789101112/*** 这是一个未规定上界的泛型类*/public class ObjectContainer&amp;lt;T&amp;gt; &amp;#123;    private T contained;	public">
 
 
 
@@ -368,10 +368,10 @@
 </blockquote>
 <ul>
 <li><p>这是一个未规定上界的泛型类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 这是一个未规定上界的泛型类</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectContainer</span>&lt;<span class="title">T</span>&gt; </span>&#123; </span><br><span class="line">    <span class="keyword">private</span> T contained; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ObjectContainer</span><span class="params">(T contained)</span> </span>&#123; </span><br><span class="line">  	  <span class="keyword">this</span>.contained = contained; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> T  <span class="title">getContained</span><span class="params">()</span> </span>&#123; </span><br><span class="line">	    <span class="keyword">return</span> contained; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 这是一个未规定上界的泛型类</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectContainer</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> T contained;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ObjectContainer</span><span class="params">(T contained)</span> </span>&#123;</span><br><span class="line">  	  <span class="keyword">this</span>.contained = contained;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> T  <span class="title">getContained</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">return</span> contained;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>因为没有上界他会被擦除为Obj</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectContainer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> Object contained; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ObjectContainer</span><span class="params">(Object contained)</span> </span>&#123; </span><br><span class="line">  		  <span class="keyword">this</span>.contained = contained; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">getContained</span><span class="params">()</span> </span>&#123; </span><br><span class="line"> 	 	  <span class="keyword">return</span> contained;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectContainer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> Object contained;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ObjectContainer</span><span class="params">(Object contained)</span> </span>&#123;</span><br><span class="line">  		  <span class="keyword">this</span>.contained = contained;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">getContained</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> 	 	  <span class="keyword">return</span> contained;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>当执行get方法的时候，会发生Obj -&gt; 所需类型的向下转型</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person contained = (Person)personContainer.getContained();</span><br></pre></td></tr></table></figure>
@@ -386,10 +386,10 @@
 </blockquote>
 <ul>
 <li><p>为泛型类设定一个上界</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectContainer</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">Person</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> T contained; </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ObjectContainer</span><span class="params">(T contained)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">this</span>.contained =contained;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">public</span> T <span class="title">getContained</span><span class="params">()</span> </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> contained; </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectContainer</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">Person</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> T contained;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ObjectContainer</span><span class="params">(T contained)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.contained =contained;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> T <span class="title">getContained</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> contained;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>会发生泛型擦除，编译器产生的代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectContainer</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span> Person contained; </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ObjectContainer</span><span class="params">(Person contained)</span> </span>&#123; </span><br><span class="line">   <span class="keyword">this</span>.contained = contained; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">public</span> Person <span class="title">getContained</span><span class="params">()</span> </span>&#123; </span><br><span class="line">   <span class="keyword">return</span> contained; </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectContainer</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span> Person contained;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ObjectContainer</span><span class="params">(Person contained)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.contained = contained;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> Person <span class="title">getContained</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> contained;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>当get的时候，编译器生成的代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Employee&lt;String&gt; contained = (Employee)personContainer.getContained();</span><br></pre></td></tr></table></figure>
@@ -399,7 +399,7 @@
 <p>疑问： &lt; ? extends A&gt; &lt; ? Super A&gt; 的区别</p>
 </blockquote>
 <ul>
-<li>extends <ul>
+<li>extends<ul>
 <li>子类通配符，上界通配符</li>
 <li>只能取，是父类对象。</li>
 <li>不能存，因为不知道具体的子类。<ul>
@@ -433,25 +433,22 @@
 <li><p>List&lt;?&gt;  和 List的区别</p>
 <ul>
 <li>List 等价于 List<object></object></li>
-<li>而List&lt;?&gt;持有某种特定类型<blockquote>
-<p>思考，泛型擦除到第一个边界是上面</p>
-</blockquote>
-</li>
+<li>而List&lt;?&gt;持有某种特定类型</li>
 </ul>
 </li>
 </ul>
 <blockquote>
-<p>思考：<t> 和 &lt;?&gt;的区别 </t></p>
+<p>思考：<t> 和 &lt;?&gt;的区别</t></p>
 </blockquote>
 <ul>
-<li><p>就是确切参数和通配符的区别， &lt;?&gt;是一个通配符</p>
-<ul>
+<li>就是确切参数和通配符的区别， &lt;?&gt;是一个通配符<ul>
 <li>T需要一个具体的类型</li>
-<li>?则都可以，原生类型也可以<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3></li>
+<li>?则都可以，原生类型也可以</li>
 </ul>
 </li>
-<li><p>再次注意：如果想要确切的返回值，就用上界通配符，他一定是返回A。如果想要传递具体类型的参数，要用下界通配符。</p>
-</li>
+</ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li>再次注意：如果想要确切的返回值，就用上界通配符，他一定是返回A。如果想要传递具体类型的参数，要用下界通配符。</li>
 <li>局限性的捕获转换<br>#java编程思想 #泛型</li>
 </ul>
 
