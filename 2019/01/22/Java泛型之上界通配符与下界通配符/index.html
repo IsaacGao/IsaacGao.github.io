@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IsaacGao&#39;Blog">
 <meta property="og:description" content="泛型泛型的擦除 定义的泛型参数，有可能被擦除为两种形式，一个是Object()的情况。一种是上界(&amp;lt;? Extents Class&amp;gt;。   这是一个未规定上界的泛型类 123456789101112/*** 这是一个未规定上界的泛型类*/public class ObjectContainer&amp;lt;T&amp;gt; &amp;#123;    private T contained;	public">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-22T15:56:55.779Z">
+<meta property="og:updated_time" content="2019-01-22T16:05:07.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java泛型之上界通配符与下界通配符">
 <meta name="twitter:description" content="泛型泛型的擦除 定义的泛型参数，有可能被擦除为两种形式，一个是Object()的情况。一种是上界(&amp;lt;? Extents Class&amp;gt;。   这是一个未规定上界的泛型类 123456789101112/*** 这是一个未规定上界的泛型类*/public class ObjectContainer&amp;lt;T&amp;gt; &amp;#123;    private T contained;	public">
@@ -428,10 +428,8 @@
 </blockquote>
 <ul>
 <li>在泛型方法中，T可以适应具体的类型</li>
-<li><p>但是在泛型类中，在创建实例的时候，就确定了具体的类型。</p>
-<h3 id="无界通配符"><a href="#无界通配符" class="headerlink" title="无界通配符"></a>无界通配符</h3></li>
-<li><p>List&lt;?&gt;  和 List的区别</p>
-<ul>
+<li>但是在泛型类中，在创建实例的时候，就确定了具体的类型。<h3 id="无界通配符"><a href="#无界通配符" class="headerlink" title="无界通配符"></a>无界通配符</h3></li>
+<li>List&lt;?&gt;  和 List的区别<ul>
 <li>List 等价于 List<object></object></li>
 <li>而List&lt;?&gt;持有某种特定类型</li>
 </ul>
@@ -494,6 +492,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/23/Java泛型之问题与更进一步应用/" rel="prev" title="Java泛型之问题和更进一步的应用">
+                Java泛型之问题和更进一步的应用 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -570,7 +572,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -592,7 +594,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
