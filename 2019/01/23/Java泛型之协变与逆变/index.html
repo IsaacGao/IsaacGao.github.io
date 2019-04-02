@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="IsaacGao&#39;Blog">
 <meta property="og:description" content="逆变与协变用来描述类型转换（type transformation）后的继承关系。定义：如果A、B表示类型，f(⋅)表示类型转换，≤表示继承关系（比如，A≤B表示A是由B派生出来的子类）  f(⋅)是逆变（contravariant）的，当A≤B时有f(B)≤f(A)成立； f(⋅)是协变（covariant）的，当A≤B时有f(A)≤f(B)成立； f(⋅)是不变（invariant）的，当A">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-24T14:18:13.452Z">
+<meta property="og:updated_time" content="2019-01-24T15:46:04.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java泛型之协变与逆变">
 <meta name="twitter:description" content="逆变与协变用来描述类型转换（type transformation）后的继承关系。定义：如果A、B表示类型，f(⋅)表示类型转换，≤表示继承关系（比如，A≤B表示A是由B派生出来的子类）  f(⋅)是逆变（contravariant）的，当A≤B时有f(B)≤f(A)成立； f(⋅)是协变（covariant）的，当A≤B时有f(A)≤f(B)成立； f(⋅)是不变（invariant）的，当A">
@@ -421,13 +421,6 @@
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Collections.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">copy</span><span class="params">(List&lt;? <span class="keyword">super</span> T&gt; dest, List&lt;? extends T&gt; src)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> srcSize = src.size();</span><br><span class="line">    <span class="keyword">if</span> (srcSize &gt; dest.size())</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(<span class="string">"Source does not fit in dest"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (srcSize &lt; COPY_THRESHOLD ||</span><br><span class="line">        (src <span class="keyword">instanceof</span> RandomAccess &amp;&amp; dest <span class="keyword">instanceof</span> RandomAccess)) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;srcSize; i++)</span><br><span class="line">            dest.set(i, src.get(i));</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        ListIterator&lt;? <span class="keyword">super</span> T&gt; di=dest.listIterator();</span><br><span class="line">        ListIterator&lt;? extends T&gt; si=src.listIterator();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;srcSize; i++) &#123;</span><br><span class="line">            di.next();</span><br><span class="line">            di.set(si.next());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="自限定"><a href="#自限定" class="headerlink" title="自限定"></a>自限定</h3><blockquote>
-<p>class SelfBounded&lt;T extends SelfBounded<t>&gt;{}</t></p>
-</blockquote>
-<ul>
-<li>SelfBounded接受一个泛型T，T有一个上界，而上界又是含有泛型T的SelfBounded</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="提醒自己"><a href="#提醒自己" class="headerlink" title="提醒自己"></a>提醒自己</h2><blockquote>
 <p>我想你了。</p>
 </blockquote>
@@ -478,8 +471,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/24/泛型之应用/" rel="prev" title="泛型之应用">
-                泛型之应用 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/24/Java泛型之自限定/" rel="prev" title="Java泛型之自限定">
+                Java泛型之自限定 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -557,7 +550,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -568,7 +561,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -579,7 +572,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -612,7 +605,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#协变、逆变"><span class="nav-number">1.</span> <span class="nav-text">协变、逆变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通配符中的协变和逆变"><span class="nav-number">2.</span> <span class="nav-text">通配符中的协变和逆变</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#协变"><span class="nav-number">2.1.</span> <span class="nav-text">协变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逆变"><span class="nav-number">2.2.</span> <span class="nav-text">逆变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PECS"><span class="nav-number">2.3.</span> <span class="nav-text">PECS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自限定"><span class="nav-number">2.4.</span> <span class="nav-text">自限定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提醒自己"><span class="nav-number">3.</span> <span class="nav-text">提醒自己</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#协变、逆变"><span class="nav-number">1.</span> <span class="nav-text">协变、逆变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通配符中的协变和逆变"><span class="nav-number">2.</span> <span class="nav-text">通配符中的协变和逆变</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#协变"><span class="nav-number">2.1.</span> <span class="nav-text">协变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逆变"><span class="nav-number">2.2.</span> <span class="nav-text">逆变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PECS"><span class="nav-number">2.3.</span> <span class="nav-text">PECS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提醒自己"><span class="nav-number">3.</span> <span class="nav-text">提醒自己</span></a></li></ol></div>
             
 
           </div>
