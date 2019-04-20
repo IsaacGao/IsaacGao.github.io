@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="maven配置,自定义插件,自定义archetype,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="最近一直在搭项目，搞依赖，发现对maven的细节了解的不是很清楚，给自己整理了个清单来了解下。maven的setting.xmlpom.xml里的标签依赖冲裁生命周期版本管理常用命令-&amp;gt; 常用插件-&amp;gt; 自定义插件-&amp;gt; 自定义archetype  插件常用插件自定义插件自定义插件的几点注意 如何防止js的缓存 生成新的文件，然后替换调htm中的引用   统计有多少个java文件 文">
-<meta name="keywords" content="maven配置,自定义插件,自定义archetype">
+<meta name="description" content="习惯的力量">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Maven进阶使用|自定义插件和archetype">
-<meta property="og:url" content="http://yoursite.com/2019/04/16/Maven进阶使用|自定义插件和archetype/index.html">
+<meta property="og:title" content="深入Spring源码|手动实现一个动态代理">
+<meta property="og:url" content="http://yoursite.com/2019/04/20/深入Spring源码-手动实现一个动态代理/index.html">
 <meta property="og:site_name" content="IsaacGao&#39;Blog">
-<meta property="og:description" content="最近一直在搭项目，搞依赖，发现对maven的细节了解的不是很清楚，给自己整理了个清单来了解下。maven的setting.xmlpom.xml里的标签依赖冲裁生命周期版本管理常用命令-&amp;gt; 常用插件-&amp;gt; 自定义插件-&amp;gt; 自定义archetype  插件常用插件自定义插件自定义插件的几点注意 如何防止js的缓存 生成新的文件，然后替换调htm中的引用   统计有多少个java文件 文">
+<meta property="og:description" content="习惯的力量">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-16T14:38:13.140Z">
+<meta property="og:updated_time" content="2019-04-20T15:44:52.597Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Maven进阶使用|自定义插件和archetype">
-<meta name="twitter:description" content="最近一直在搭项目，搞依赖，发现对maven的细节了解的不是很清楚，给自己整理了个清单来了解下。maven的setting.xmlpom.xml里的标签依赖冲裁生命周期版本管理常用命令-&amp;gt; 常用插件-&amp;gt; 自定义插件-&amp;gt; 自定义archetype  插件常用插件自定义插件自定义插件的几点注意 如何防止js的缓存 生成新的文件，然后替换调htm中的引用   统计有多少个java文件 文">
+<meta name="twitter:title" content="深入Spring源码|手动实现一个动态代理">
+<meta name="twitter:description" content="习惯的力量">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/16/Maven进阶使用|自定义插件和archetype/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/20/深入Spring源码-手动实现一个动态代理/">
 
 
 
 
 
-  <title>Maven进阶使用|自定义插件和archetype | IsaacGao'Blog</title>
+  <title>深入Spring源码|手动实现一个动态代理 | IsaacGao'Blog</title>
   
 
 
@@ -263,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/Maven进阶使用|自定义插件和archetype/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/20/深入Spring源码-手动实现一个动态代理/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="IsaacGao">
@@ -280,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Maven进阶使用|自定义插件和archetype</h1>
+          <h1 class="post-title" itemprop="name headline">深入Spring源码|手动实现一个动态代理</h1>
         
 
         <div class="post-meta">
@@ -292,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-16T21:58:30+08:00">
-                Apr 16 2019
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-20T23:44:52+08:00">
+                Apr 20 2019
               </time>
             
 
@@ -302,39 +301,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/maven/" itemprop="url" rel="index">
-                    <span itemprop="name">maven</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/maven/向着高级进发/" itemprop="url" rel="index">
-                    <span itemprop="name">向着高级进发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -363,19 +329,7 @@
       
 
       
-        <blockquote class="blockquote-center"><p>最近一直在搭项目，搞依赖，发现对maven的细节了解的不是很清楚，给自己整理了个清单来了解下。<br>maven的setting.xml<br>pom.xml里的标签<br>依赖冲裁<br>生命周期<br>版本管理<br>常用命令<br>-&gt; 常用插件<br>-&gt; 自定义插件<br>-&gt; 自定义archetype</p>
-</blockquote>
-<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><h3 id="常用插件"><a href="#常用插件" class="headerlink" title="常用插件"></a>常用插件</h3><h3 id="自定义插件"><a href="#自定义插件" class="headerlink" title="自定义插件"></a>自定义插件</h3><h4 id="自定义插件的几点注意"><a href="#自定义插件的几点注意" class="headerlink" title="自定义插件的几点注意"></a>自定义插件的几点注意</h4><ul>
-<li>如何防止js的缓存<ul>
-<li>生成新的文件，然后替换调htm中的引用</li>
-</ul>
-</li>
-<li>统计有多少个java文件<ul>
-<li>文件类型应该可配置</li>
-</ul>
-</li>
-</ul>
-
+        
       
     </div>
     
@@ -390,16 +344,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/maven配置/" rel="tag"></a>
-          
-            <a href="/tags/自定义插件/" rel="tag"></a>
-          
-            <a href="/tags/自定义archetype/" rel="tag"></a>
-          
-        </div>
-      
 
       
       
@@ -409,8 +353,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/16/Maven进阶使用/" rel="next" title="Maven进阶使用|pom.xml依赖仲裁">
-                <i class="fa fa-chevron-left"></i> Maven进阶使用|pom.xml依赖仲裁
+              <a href="/2019/04/17/Git进阶使用/" rel="next" title="Maven进阶使用|自定义插件和archetype">
+                <i class="fa fa-chevron-left"></i> Maven进阶使用|自定义插件和archetype
               </a>
             
           </div>
@@ -418,10 +362,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/17/Git进阶使用/" rel="prev" title="Maven进阶使用|自定义插件和archetype">
-                Maven进阶使用|自定义插件和archetype <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -473,17 +413,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -543,22 +474,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#插件"><span class="nav-number">1.</span> <span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用插件"><span class="nav-number">1.1.</span> <span class="nav-text">常用插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义插件"><span class="nav-number">1.2.</span> <span class="nav-text">自定义插件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义插件的几点注意"><span class="nav-number">1.2.1.</span> <span class="nav-text">自定义插件的几点注意</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
